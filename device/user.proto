@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "models;models";
+
+message UserMessage  {
+  string username = 1;
+  string email = 2;
+  string first_name = 3;
+  string last_name = 4;
+  string gender = 5;
+}
