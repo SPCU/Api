@@ -1,1 +1,1 @@
-protoc -I device/ --go_out=device/ device/user.proto
+protoc -I device/ --go_out=device/ device/*.proto
