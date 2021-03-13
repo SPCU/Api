@@ -1,1 +1,1 @@
-protoc.exe -I device\ --go_out=device\ device\user.proto
+protoc.exe -I device\ --go_out=device\ device\*.proto
