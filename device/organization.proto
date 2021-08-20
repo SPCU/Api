@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option go_package = "models;models";
+option go_package = "device/models";
+package models;
 
 message OrganizationDetailMessage  {
   string full_name = 1;
