@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "github.com/SPCU/Api/device/models";
+
+package models;
+
+service Majority {
+  rpc CalculateListMajority(ListMajorityRequest) returns (ListMajorityReply) {}
+}
+
+// The request message containing the user's name.
+message ListMajorityRequest {
+  repeated int32 numbers = 1;
+}
+
+// The response message containing the greetings
+message ListMajorityReply {
+  string message = 1;
+  int32 majorityNumber = 2;
+}
