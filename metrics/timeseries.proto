@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option go_package = "github.com/SPCU/Api/metrics/models";
+
+package models;
+
+message TimeSeries {
+  string id = 1;  // ID is auto generated
+  string name = 2;
+  repeated Tag tags = 3;
+  DataPoint dataPoint = 4;
+}
+
+message DataPoint {
+  int64 timestamp = 1; // milliseconds since Unix epoch
+  double value = 2;
+}
+
+message Tag {
+  string key = 1;
+  string value = 2;
+}
+
+message TimeSeriesBatch {
+  repeated TimeSeries series = 1;
+}
+
+message PublishResponse {
+}
+
+service Store {
+  rpc Write(stream TimeSeries) returns (PublishResponse);
+  rpc WriteBatch(TimeSeriesBatch) returns (PublishResponse);
+}
