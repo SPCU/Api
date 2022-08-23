@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "github.com/SPCU/Api/logs/models";
+
+package models;
+
+message GzipChunk {
+  bytes Content = 1;  // ID is auto generated
+}
+
+enum UploadStatusCode {
+  Unknown = 0;
+  Ok = 1;
+  Failed = 2;
+}
+
+message UploadStatus {
+  string Message = 1;
+  UploadStatusCode Code = 2;
+}
+
+service LogProcess {
+  rpc ProcessGzip(stream GzipChunk) returns (UploadStatus) {}
+}
